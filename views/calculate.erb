@@ -1,0 +1,25 @@
+<table class='table table-bordered'>
+    <tr>
+        <td>номер месяца</td>
+        <td>погашение кредита</td>
+        <td>погашение %</td>
+        <td>общий взнос</td>
+        <td>остаток кредита</td>
+    </tr>
+    <% @credit_table.each do |row| %>
+        <tr>
+            <td><%= row[:month] %></td>
+            <td><%= row[:month_credit_sum].round 2 %></td>
+            <td><%= row[:month_percent_payment].round 2 %></td>
+            <td><%= row[:month_payment].round 2 %></td>
+            <td><%= row[:credit].round 2 %></td>
+        </tr>
+    <% end %>
+    <tr>
+        <td></td>
+        <td><%=@credit_table.map{|hash| hash[:month_credit_sum]}.inject(:+).round 2 %></td>
+        <td><%=@credit_table.map{|hash| hash[:month_percent_payment]}.inject(:+).round 2 %></td>
+        <td><%=@credit_table.map{|hash| hash[:month_payment]}.inject(:+).round 2 %></td>
+        <td></td>
+    </tr>
+</table>

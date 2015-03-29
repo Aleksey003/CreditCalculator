@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript">
+        
+        $(function() {
+          $("form").submit(function(e){
+            e.preventDefault();
+
+            $.ajax({
+              type: "POST",
+              url: "/calculate",
+              data: $('form').serialize(),
+              success: function(data){
+                $("#credit_table").html(data)
+              },
+              error: function(data){
+                $("#credit_table").html(data)
+              }
+            });
+          });
+        });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+       <%= yield %>
+    </div>
+  </body>
+</html>
+
