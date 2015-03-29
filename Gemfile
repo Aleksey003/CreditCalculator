@@ -4,5 +4,10 @@ gem 'sinatra', github: 'sinatra/sinatra'
 
 group :development, :test do
   gem 'pry'
-  gem 'cucumber'
+end
+
+group :test do 
+  gem "rspec"
+  gem "capybara"
+  gem 'selenium-webdriver'
 end
