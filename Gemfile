@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'sinatra', github: 'sinatra/sinatra'
+gem 'sinatra'
+gem "thin"
 
 group :development, :test do
   gem 'pry'
